@@ -8,11 +8,9 @@
     "experimentalDecorators": true,
     "removeComments": true,
     "noImplicitAny": false,
-    "noLib": false,
-    "declaration": true,
-    "outFile": "bundle/simple-toast-angular2.js"
+    "noLib": false
   },
-  "exclude": [
-    "example"
+  "F": [
+    "../"
   ]
 }

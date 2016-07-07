@@ -1,22 +1,8 @@
 {
-  "name": "simple-toast-angular2",
-  "version": "0.0.48",
+  "name": "example-simple-toast-angular2",
+  "version": "0.0.1",
   "description": "Application for angular2",
-  "main": "simple-toast-angular2.js",
   "directories": {},
-  "dependencies": {},
-  "devDependencies": {},
-  "author": "lucasmessiaspg",
-  "license": "MIT",
-
-  "scripts": {
-    "start": "\"npm run lite\"",
-    "lite": "lite-server",
-    "postinstall": "typings install",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w",
-    "typings": "typings"
-  },
   "dependencies": {
     "@angular/common": "2.0.0-rc.4",
     "@angular/compiler": "2.0.0-rc.4",
@@ -34,6 +20,7 @@
     "ng2-toastr": "^0.2.0",
     "reflect-metadata": "^0.1.3",
     "rxjs": "5.0.0-beta.6",
+    "simple-toast-angular2": "0.0.48",
     "systemjs": "0.19.27",
     "zone.js": "^0.6.12"
   },
@@ -42,5 +29,15 @@
     "lite-server": "^2.2.0",
     "typescript": "^1.8.10",
     "typings": "^1.0.4"
+  },
+  "author": "lucasmessiaspg",
+  "license": "MIT",
+  "scripts": {
+    "start": "npm run lite",
+    "lite": "lite-server",
+    "postinstall": "typings install",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "typings": "typings"
   }
 }

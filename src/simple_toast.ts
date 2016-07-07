@@ -6,6 +6,6 @@ import {Component} from "@angular/core/";
 })
 export class SimpleToastComponent{
     constructor(){
-        console.log('teste3');
+        console.log('teste');
     }
 }

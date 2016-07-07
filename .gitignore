@@ -1,3 +1,5 @@
 .idea
 /node_modules
 /typings
+/example/typings
+/example/node_modules

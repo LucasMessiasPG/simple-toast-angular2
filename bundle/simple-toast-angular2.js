@@ -20,7 +20,7 @@ System.register("simple-toast-angular2/simple-toast-angular2", ["@angular/core/"
         execute: function() {
             SimpleToastComponent = (function () {
                 function SimpleToastComponent() {
-                    console.log('teste3');
+                    console.log('teste');
                 }
                 SimpleToastComponent = __decorate([
                     _1.Component({
