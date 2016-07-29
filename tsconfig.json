@@ -13,6 +13,7 @@
     "outFile": "bundle/simple-toast-angular2.js"
   },
   "exclude": [
-    "example"
+    "example",
+    "node_modules"
   ]
 }

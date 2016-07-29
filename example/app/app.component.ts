@@ -1,18 +1,22 @@
 import {Component} from '@angular/core';
+import {Toast} from "simple-toast-angular2/simple-toast-angular2";
+import {ToastComponent} from "simple-toast-angular2/src/simple-toast.component";
 @Component({
     selector: 'my-app',
     template: `
     <div class="home">
         <h1>Simple Toast Angular 2</h1>
         <ul>
-          <li><button (click)="toast()">Default</button></li>
-          <li><button (click)="toast('success')" class="success">Success</button></li>
-          <li><button (click)="toast('info')" class="info">Info</button></li>
-          <li><button (click)="toast('warning')" class="warning">Warning</button></li>
-          <li><button (click)="toast('error')" class="error">Error</button></li>
+          <li><button (click)="showToast()">Default</button></li>
+          <li><button (click)="showToast('success')" class="success">Success</button></li>
+          <li><button (click)="showToast('info')" class="info">Info</button></li>
+          <li><button (click)="showToast('warning')" class="warning">Warning</button></li>
+          <li><button (click)="showToast('error')" class="error">Error</button></li>
         </ul>
     </div>
+    <simple-toast></simple-toast>
     `,
+    directives:[ToastComponent],
     styles: [`
     .home{
         max-width: 1200px;
@@ -96,23 +100,28 @@ import {Component} from '@angular/core';
     `]
 })
 export class AppComponent {
+    private toast;
 
-    toast(type){
+    constructor(_toast: Toast){
+        this.toast = _toast;
+    }
+
+    showToast(type){
         switch (type){
             case 'success':
-                console.log('success')
+                this.toast.success('teste 1')
                 break;
             case 'info':
-                console.log('info')
+                this.toast.info('teste 1')
                 break;
             case 'warning':
-                console.log('warning')
+                this.toast.warning('teste 1')
                 break;
             case 'error':
-                console.log('error')
+                this.toast.error('teste 1')
                 break;
             default:
-                console.log('default')
+                this.toast.default('teste 1')
                 break;
         }
     }

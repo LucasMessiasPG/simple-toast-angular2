@@ -3,7 +3,7 @@
 /example
 /.idea
 .gitignore
-src/simple_toast.ts
+src/simple-toast.ts
 src/toast.ts
 simple-toast-angular2.ts
 bundle/simple-toast-angular2.d.ts
