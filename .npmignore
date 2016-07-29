@@ -5,5 +5,7 @@
 .gitignore
 src/simple-toast.ts
 src/toast.ts
+src/simple-toast.component.ts
+src/toast-config.ts
 simple-toast-angular2.ts
 bundle/simple-toast-angular2.d.ts

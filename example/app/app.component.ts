@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {Toast} from "simple-toast-angular2/simple-toast-angular2";
 import {ToastComponent} from "simple-toast-angular2/src/simple-toast.component";
+import {ToastConfig} from "simple-toast-angular2/src/toast-config";
 @Component({
     selector: 'my-app',
     template: `
@@ -17,6 +18,7 @@ import {ToastComponent} from "simple-toast-angular2/src/simple-toast.component";
     <simple-toast></simple-toast>
     `,
     directives:[ToastComponent],
+    providers:[Toast],
     styles: [`
     .home{
         max-width: 1200px;
@@ -102,7 +104,8 @@ import {ToastComponent} from "simple-toast-angular2/src/simple-toast.component";
 export class AppComponent {
     private toast;
 
-    constructor(_toast: Toast){
+    constructor(_configToast: ToastConfig, _toast: Toast){
+        _configToast.title = 'teste';
         this.toast = _toast;
     }
 
@@ -121,7 +124,7 @@ export class AppComponent {
                 this.toast.error('teste 1')
                 break;
             default:
-                this.toast.default('teste 1')
+                this.toast.success('teste 1')
                 break;
         }
     }

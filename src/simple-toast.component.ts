@@ -1,16 +1,18 @@
 ///<amd-module name="simple-toast-angular2/src/simple-toast.component"/>
 import {Component,EventEmitter} from "@angular/core";
 import {Toast} from "./toast";
+import {ToastConfig} from "simple-toast-angular2/src/toast-config";
 @Component({
     selector:'simple-toast',
+    providers:[ToastConfig],
     template:`
     <div class="toast" [ngClass]="toast.type"  *ngFor="let toast of list_toast; let i = index">
-        <div class="toast-component">
-            <div *ngIf="(toast && toast.message)" class="toast-text">
+        <div *ngIf="(toast && toast.message)" class="toast-component" (click)="remove(toast)">
+            <div class="toast-text">
                 <h3 class="toast-title">{{ toast.title }}</h3>
                 <p class="toast-message">{{toast.message}}</p>
             </div> 
-            <div *ngIf="(toast && toast.message)" class="toast-icon">
+            <div class="toast-icon">
                 <i *ngIf="toast.type == 'default'" class="fa fa-info-circle"></i>
                 <i *ngIf="toast.type== 'success'" class="fa fa-check-circle"></i>
                 <i *ngIf="toast.type == 'error'" class="fa fa-exclamation-triangle"></i>
@@ -28,7 +30,7 @@ import {Toast} from "./toast";
       border-radius: 4px;
       box-shadow: 0 0 10px rgba(0,0,0,.4);
       padding: 5px;
-      position: relative;
+      position: absolut;
       margin-bottom: 10px;
       margin-top: 10px;
       cursor: pointer;
@@ -91,5 +93,11 @@ export class ToastComponent{
     }
     private getToast(toast:any) {
         this.list_toast.push(toast);
+        var timeOut = toast.timer;
+        setTimeout(() => { this.remove(toast) },timeOut)
+    }
+
+    private remove(toast:any) {
+        this.list_toast.splice(this.list_toast.indexOf(toast),1);
     }
 }
