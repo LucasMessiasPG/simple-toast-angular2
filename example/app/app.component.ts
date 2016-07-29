@@ -7,6 +7,15 @@ import {ToastConfig} from "simple-toast-angular2/src/toast-config";
     template: `
     <div class="home">
         <h1>Simple Toast Angular 2</h1>
+        <label>Titulo
+          <input type="text" [(ngModel)]="title">
+        </label>
+        <label>Conteudo
+          <input type="text" [(ngModel)]="content">
+        </label>
+        <label>Tempo
+          <input type="text" [(ngModel)]="timer">
+        </label>
         <ul>
           <li><button (click)="showToast()">Default</button></li>
           <li><button (click)="showToast('success')" class="success">Success</button></li>
@@ -103,28 +112,33 @@ import {ToastConfig} from "simple-toast-angular2/src/toast-config";
 })
 export class AppComponent {
     private toast;
+    private timer = 4000;
+    private content = 'Conteudo de Exemplo';
+    private title = 'Aviso';
 
-    constructor(_configToast: ToastConfig, _toast: Toast){
-        _configToast.title = 'teste';
+    constructor(private _configToast: ToastConfig, _toast: Toast){
+        this._configToast.title = 'teste';
+        this._configToast.timer = this.timer;
         this.toast = _toast;
     }
 
     showToast(type){
+        this._configToast.timer = this.timer;
         switch (type){
             case 'success':
-                this.toast.success('teste 1')
+                this.toast.success(this.content,this.title)
                 break;
             case 'info':
-                this.toast.info('teste 1')
+                this.toast.info(this.content,this.title)
                 break;
             case 'warning':
-                this.toast.warning('teste 1')
+                this.toast.warning(this.content,this.title)
                 break;
             case 'error':
-                this.toast.error('teste 1')
+                this.toast.error(this.content,this.title)
                 break;
             default:
-                this.toast.success('teste 1')
+                this.toast.success(this.content,this.title)
                 break;
         }
     }
